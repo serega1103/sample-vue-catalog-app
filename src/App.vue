@@ -18,12 +18,13 @@
     border: none;
     outline: none;
   }
-  .icon {
-    position: relative;
-    top: 2px;
-    margin-right: 10px;
-  }
   .plus__icon {
     content: url('assets/icons/plus.svg');
+  }
+  .down-arrow__icon {
+    content: url('assets/icons/down-arrow.svg');
+  }
+  .rotation270 {
+    transform: rotate(270deg);
   }
 </style>

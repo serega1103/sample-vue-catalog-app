@@ -1,7 +1,7 @@
 <template>
   <div class="add-button">
     <button type="button" name="add-button" class="add__button purchase__button">
-      <span class="icon plus__icon"></span>
+      <span class="plus__icon plus__icon-add-button"></span>
       Добавить
     </button>
   </div>
@@ -24,6 +24,7 @@ export default {
     background: #4943CD;
     box-shadow: 0px 4px 4px #EBEBEB;
     border-radius: 2px;
+    cursor: pointer;
 
     font-weight: bold;
     font-size: 14px;
@@ -32,5 +33,10 @@ export default {
 
     text-align: center;
     text-transform: uppercase;
+  }
+  .plus__icon-add-button {
+    position: relative;
+    top: 2px;
+    margin-right: 10px;
   }
 </style>
