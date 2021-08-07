@@ -1,6 +1,6 @@
 <template>
   <div class="sorting">
-    <SortingSelect :options="options" @select="optionSelect" :selected="selected"/>
+    <SortingSelect :options="options" :selected="selected" @select="optionSelect" />
   </div>
 </template>
 
@@ -39,7 +39,8 @@ export default {
 <style scoped lang="scss">
 .sorting {
   height: 70px;
-  margin-right: 20px;
+  min-width: 320px;
+  margin-right: 100px;
   background: #FFFFFF;
   box-shadow: 0px 4px 12px #E7E7E7;
   border-radius: 3px;

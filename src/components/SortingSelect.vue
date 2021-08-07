@@ -1,43 +1,44 @@
 <template>
   <div class="sorting-select">
     <p class="sorting-select__placeholder"
-    @click="isOptionsVisible = !isOptionsVisible">{{ selected }}
+    @click="isOptionsVisible = !isOptionsVisible">
+    <span v-if="!GET_INVOICE_NUMBER_SORTING">Sorting</span>
+    <span v-if="GET_INVOICE_NUMBER_SORTING == 1">Sort by Invoice number: ascending</span>
+    <span v-if="GET_INVOICE_NUMBER_SORTING == 2">Sort by Invoice number: descending</span>
     <span class="down-arrow__icon
     down-arrow__icon-sorting" v-if="!isOptionsVisible"></span>
     <span class="down-arrow__icon
     down-arrow__icon-sorting rotation270" v-if="isOptionsVisible"></span></p>
     <div class="sorting-select__options" v-if="isOptionsVisible">
-      <p v-for="option in options" :key="option.value"
-      @click="selectOption(option)">{{ option.name }}</p>
+      <span @click="setInvoiceNumberSorting(1)">Sort by Invoice number: ascending</span>
+      <span @click="setInvoiceNumberSorting(2)">Sort by Invoice number: descending</span>
     </div>
   </div>
 </template>
 
 <script>
+import { mapMutations, mapGetters } from 'vuex';
+
 export default {
   name: 'SortingSelect',
-  props: {
-    options: {
-      type: Array,
-      default() {
-        return [];
-      },
-    },
-    selected: {
-      type: String,
-      default: '',
-    },
-  },
   data() {
     return {
       isOptionsVisible: false,
     };
   },
   methods: {
-    selectOption(option) {
-      this.$emit('select', option);
+    ...mapMutations([
+      'SET_INVOICE_NUMBER_SORTING',
+    ]),
+    setInvoiceNumberSorting(sortby) {
+      this.SET_INVOICE_NUMBER_SORTING(sortby);
       this.isOptionsVisible = false;
     },
+  },
+  computed: {
+    ...mapGetters([
+      'GET_INVOICE_NUMBER_SORTING',
+    ]),
   },
 };
 </script>
@@ -49,14 +50,15 @@ export default {
     width: 300px;
     top: 20px;
     left: 20px;
-    cursor: pointer;
     user-select: none;
     border: 1px solid #E0E5E6;
+    box-sizing: border-box;
 
     &__placeholder {
       margin: 0;
       padding-left: 10px;
       background-color: white;
+      box-sizing: border-box;
 
       font-weight: bold;
       font-size: 16px;
@@ -70,8 +72,10 @@ export default {
       width: 300px;
       border: 1px solid #E0E5E6;
       border-top: 1px solid #FFFFFF;
+      box-sizing: border-box;
 
-      & p {
+      & span {
+        display: block;
         margin: 0;
         padding-left: 10px;
         background-color: white;

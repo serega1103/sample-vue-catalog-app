@@ -1,15 +1,21 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import MainPage from '../views/MainPage.vue';
+import ListView from '../views/ListView.vue';
+import CardsView from '../views/CardsView.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'MainPage',
-    component: MainPage,
+    name: 'ListView',
+    component: ListView,
+  },
+  {
+    path: '/cards',
+    name: 'CardsView',
+    component: CardsView,
   },
 ];
 

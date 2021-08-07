@@ -1,20 +1,34 @@
 <template>
   <div class="cards">
-    <h1>Cards View</h1>
-    <button class="button" @click="$router.push('/')">Switch to ListView</button>
+    <Card v-for="order in ORDERS"
+    :key="order.id"
+    :order_data="order" />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import Card from './Card.vue';
+
 export default {
   name: 'Cards',
-  props: {
-    msg: String,
+  components: {
+    Card,
+  },
+  computed: {
+    ...mapGetters([
+      'ORDERS',
+    ]),
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-  //
+  .cards {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px 20px;
+    justify-content: space-between;
+  }
 </style>
