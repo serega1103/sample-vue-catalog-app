@@ -15,7 +15,8 @@
         </div>
         <div class="modal__window-content-input">
           <p>Тип заказа</p>
-          <OrderTypeSelect />
+          <OrderTypeSelect :orderType = "orderObject.type"
+          @orderTypeEdit="orderObject.type = $event"/>
         </div>
       </div>
     </div>

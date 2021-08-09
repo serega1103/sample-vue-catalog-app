@@ -70,6 +70,7 @@ export default {
 
       &:first-child {
         text-align: center;
+        padding: 0;
       }
 
       &:last-child {
@@ -78,24 +79,13 @@ export default {
     }
 
     &__column1 {
-      flex: 0 0 16%;
-      max-width: 16%;
+      flex: 0 0 150px;
+      width: 150px;
     }
-    &__column2 {
-      flex: 0 0 27%;
-      max-width: 27%;
-    }
-    &__column3 {
-      flex: 0 0 23.3%;
-      max-width: 23.3%;
-    }
-    &__column4 {
-      flex: 0 0 29%;
-      max-width: 29%;
-    }
+
     &__column5 {
       flex: 0 0 65px;
-      max-width: 65px;
+      width: 65px;
     }
   }
 </style>
