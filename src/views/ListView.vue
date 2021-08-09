@@ -39,11 +39,6 @@ export default {
       'GET_MODAL',
     ]),
   },
-  // data() {
-  //   return {
-  //     isModalVisible: this.GET_MODAL,
-  //   };
-  // },
 };
 </script>
 

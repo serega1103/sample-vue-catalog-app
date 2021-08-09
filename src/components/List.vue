@@ -78,31 +78,24 @@ export default {
     }
 
     &__column1 {
-      flex: 0 0 15%;
-      max-width: 15%;
+      flex: 0 0 16%;
+      max-width: 16%;
     }
     &__column2 {
       flex: 0 0 27%;
       max-width: 27%;
     }
     &__column3 {
-      flex: 0 0 22%;
-      max-width: 22%;
+      flex: 0 0 23.3%;
+      max-width: 23.3%;
     }
     &__column4 {
       flex: 0 0 29%;
       max-width: 29%;
     }
     &__column5 {
-      flex: 0 0 7%;
-      max-width: 7%;
-
-      &-edit-menu {
-        position: relative;
-        height: 30px;
-        width: 100px;
-        background-color: green;
-      }
+      flex: 0 0 65px;
+      max-width: 65px;
     }
   }
 </style>

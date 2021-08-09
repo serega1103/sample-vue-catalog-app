@@ -5,16 +5,33 @@
     </div>
     <div class="filters__content">
       <span class="filters__content-invoice-text">Invoice number</span>
-      <input type="search" name="filters" placeholder="Enter value" class="filters__content-input"/>
+      <input type="search" name="filters" placeholder="Enter value"
+      v-model="filterText" class="filters__content-input"/>
     </div>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
   name: 'Filters',
-  props: {
-    msg: String,
+  data() {
+    return {
+      filterText: '',
+    };
+  },
+  methods: {
+    ...mapMutations([
+      'SET_INVOICE_NUMBER_FILTER',
+    ]),
+  },
+  computed: {
+    setInvoiceNumberFilter() {
+      const filter = new RegExp(this.filterText, 'i');
+      this.SET_INVOICE_NUMBER_FILTER(filter);
+      return 0;
+    },
   },
 };
 </script>
@@ -66,6 +83,15 @@ export default {
         font-size: 14px;
         line-height: 16px;
         color: #A5A5A5;
+
+        &::placeholder {
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 30px;
+          color: #A5A5A5;
+        }
       }
       &-input:active {
         border: 1px solid #D9D9D9;

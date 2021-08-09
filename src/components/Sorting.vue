@@ -1,6 +1,6 @@
 <template>
   <div class="sorting">
-    <SortingSelect :options="options" :selected="selected" @select="optionSelect" />
+    <SortingSelect />
   </div>
 </template>
 
@@ -11,26 +11,6 @@ export default {
   name: 'Sorting',
   components: {
     SortingSelect,
-  },
-  data() {
-    return {
-      options: [
-        {
-          name: 'Sort by Invoice number: ascending',
-          value: 1,
-        },
-        {
-          name: 'Sort by Invoice number: descending',
-          value: 2,
-        },
-      ],
-      selected: 'Sorting',
-    };
-  },
-  methods: {
-    optionSelect(option) {
-      this.selected = option.name;
-    },
   },
 };
 </script>

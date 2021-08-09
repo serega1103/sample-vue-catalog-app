@@ -1,7 +1,7 @@
 <template>
   <div class="add-button">
     <button type="button" name="add-button"
-    class="add__button purchase__button" @click="setModalStateTrue()">
+    class="add__button purchase__button" @click="SET_MODAL_STATE(1); APEND_ORDER()">
       <span class="plus__icon"></span>
       <span>Добавить</span>
     </button>
@@ -15,16 +15,13 @@ export default {
   name: 'AddButton',
   methods: {
     ...mapMutations([
+      'APEND_ORDER',
       'SET_MODAL_STATE',
     ]),
-    setModalStateTrue() {
-      this.SET_MODAL_STATE(true);
-    },
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
   .add__button {
     height: 70px;

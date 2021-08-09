@@ -38,6 +38,14 @@
     content: url('assets/icons/ellipsis.svg');
     vertical-align: middle;
   }
+  .pencil__icon {
+    content: url('assets/icons/pencil.svg');
+    vertical-align: middle;
+  }
+  .bucket__icon {
+    content: url('assets/icons/bucket.svg');
+    vertical-align: middle;
+  }
   .rotation270 {
     transform: rotate(270deg);
   }
