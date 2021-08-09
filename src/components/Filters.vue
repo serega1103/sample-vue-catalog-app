@@ -6,7 +6,7 @@
     <div class="filters__content">
       <span class="filters__content-invoice-text">Invoice number</span>
       <input type="search" name="filters" placeholder="Enter value"
-      v-model="filterText" class="filters__content-input"/>
+      v-model="invoiceNumberFilter" class="filters__content-input"/>
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
   name: 'Filters',
   data() {
     return {
-      filterText: '',
+      invoiceNumberFilter: '',
     };
   },
   methods: {
@@ -26,17 +26,14 @@ export default {
       'SET_INVOICE_NUMBER_FILTER',
     ]),
   },
-  computed: {
-    setInvoiceNumberFilter() {
-      const filter = new RegExp(this.filterText, 'i');
-      this.SET_INVOICE_NUMBER_FILTER(filter);
-      return 0;
+  watch: {
+    invoiceNumberFilter() {
+      this.SET_INVOICE_NUMBER_FILTER(this.invoiceNumberFilter);
     },
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
   .filters {
     width: 100%;

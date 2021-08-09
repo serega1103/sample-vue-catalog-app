@@ -6,14 +6,20 @@
     </div>
     <div class="list-row-edit__menu"
     @click="isEditMenuVisible = false" v-if="isEditMenuVisible">
-      <div @click="SET_MODAL_STATE(2); APEND_ORDER(orderObject)">
-        <span class="pencil__icon"></span>
+      <div class="list-row-edit__menu-option" @click="SET_MODAL_STATE(2); APEND_ORDER(orderObject)">
+        <div class="list-row-edit__menu-option-icon">
+          <span class="pencil__icon"></span>
+        </div>
       </div>
-      <div @click="REMOVE_ORDER(orderObject.id)">
-        <span class="bucket__icon"></span>
+      <div class="list-row-edit__menu-option" @click="REMOVE_ORDER(orderObject.id)">
+        <div class="list-row-edit__menu-option-icon">
+          <span class="bucket__icon"></span>
+        </div>
       </div>
-      <div>
-        <span class="ellipsis__icon"></span>
+      <div class="list-row-edit__menu-option" >
+        <div class="list-row-edit__menu-option-icon">
+          <span class="ellipsis__icon"></span>
+        </div>
       </div>
     </div>
   </div>
@@ -61,22 +67,41 @@ export default {
     &__menu {
       position: relative;
       top: 4px;
-      right: 51px;
+      right: 50px;
       height: 30px;
       width: 100px;
-      border: 1px solid #647A8C;
+      border: 1px solid #F2F2F2;
       border-radius: 7px;
       background: #FFFFFF;
-      text-align: center;
-      line-height: 27px;
       overflow: hidden;
 
-      & div {
-        height: 30px;
-        width: 33px;
+      &-option {
+        height: 32px;
+        width: 32px;
+        padding-left: 6px;
+        padding-top: 3px;
         display: inline-block;
         box-sizing: border-box;
         float: left;
+
+        &-icon {
+          height: 24px;
+          width: 24px;
+          text-align: center;
+          line-height: 22px;
+
+          &:hover {
+            background-color: #E5E9EC;
+            border-radius: 12px;
+
+            & span {
+              opacity: 0.5;
+            }
+          }
+          &:active span {
+            opacity: 1;
+          }
+        }
       }
     }
   }

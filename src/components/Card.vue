@@ -1,7 +1,10 @@
 <template>
   <div class="card">
     <div class="card__header">
-      <span class="card__header-text">Card</span>
+      <div class="card__header-text">
+        <span>Card {{ order_data.id }}</span>
+      </div>
+      <CardEdit :orderObject = "order_data" />
     </div>
     <div class="card__content">
       <span class="card__content-order-data">{{ order_data.id }}</span>
@@ -9,14 +12,17 @@
       <span class="card__content-order-data">{{ order_data.type }}</span>
       <span class="card__content-order-data">{{ order_data.date }}</span>
     </div>
-
   </div>
 </template>
 
 <script>
+import CardEdit from './CardEdit.vue';
 
 export default {
   name: 'Card',
+  components: {
+    CardEdit,
+  },
   props: {
     order_data: {
       type: Object,
@@ -36,15 +42,20 @@ export default {
     border-radius: 3px;
 
     &__header {
-      height: 25px;
-      padding: 15px 0 0 20px;
+      height: 40px;
+      padding-left: 20px;
       background: rgba(237, 232, 245, 0.5);
 
       &-text {
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 21px;
-        color: #2B2839;
+        display: inline-block;
+        padding-top: 12px;
+
+        & span {
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 18px;
+          color: #2B2839;
+        }
       }
     }
 

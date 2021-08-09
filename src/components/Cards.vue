@@ -1,6 +1,6 @@
 <template>
   <div class="cards">
-    <Card v-for="order in ORDERS"
+    <Card v-for="order in orders"
     :key="order.id"
     :order_data="order" />
   </div>
@@ -18,7 +18,12 @@ export default {
   computed: {
     ...mapGetters([
       'ORDERS',
+      'GET_INVOICE_NUMBER_FILTER',
     ]),
+    orders() {
+      return this.ORDERS.filter((order) => (order.invoice_id
+        .indexOf(this.GET_INVOICE_NUMBER_FILTER) !== -1));
+    },
   },
 };
 </script>

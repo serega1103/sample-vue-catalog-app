@@ -7,7 +7,7 @@
       <div class="list-row__element list-row__column4 list-row__header">Дата создания</div>
       <div class="list-row__element list-row__column5 list-row__header"></div>
     </div>
-    <ListRow v-for="order in ORDERS"
+    <ListRow v-for="order in orders"
     :key="order.id"
     :order_data="order" />
   </div>
@@ -25,7 +25,12 @@ export default {
   computed: {
     ...mapGetters([
       'ORDERS',
+      'GET_INVOICE_NUMBER_FILTER',
     ]),
+    orders() {
+      return this.ORDERS.filter((order) => (order.invoice_id
+        .indexOf(this.GET_INVOICE_NUMBER_FILTER) !== -1));
+    },
   },
 };
 </script>
